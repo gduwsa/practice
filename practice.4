@@ -1,4 +1,129 @@
 #include<stdio.h>
+
+int main（）
+
+{
+整型 ch = 0;
+整型 ret = 0;
+字符密码[20] = { 0 };
+printf（“输入密码：>”）;
+scanf（“%s”， password）;
+printf（“请确认（Y/N）：>”）;
+while（（ch = getchar（））！='\n'）//要让它循环接收读取
+	{
+;//空行
+	}
+ret = getchar（）;
+if （ret == 'Y'）
+	{
+printf（“确认成功\n”);
+	}
+还
+	{
+printf（“放弃确认\n”);
+	}
+返回 0;
+}
+
+求奇数
+#include<stdio.h>//方法一
+
+int main（）
+{
+整型 i = 1;
+而 （i <= 100）
+	{
+printf（“%d”， i）;
+i+=2;
+	}
+返回 0;
+}
+
+#include<stdio.h>//方法二
+
+int main（）
+{
+整型 i = 1;
+而 （i<=100）
+	{
+如果 （i%2！=0）
+printf（“%d”， i）;
+i++;
+	}
+返回 0;
+
+whlie循环语句
+#include<stdio.h>
+int main（）
+{
+整型 i = 1;
+而 （i <= 10）
+	{
+如果 （i == 5）
+中断;//继续
+printf（“%d\n”， i）;
+i++;
+	}
+返回 0;
+}
+
+开关循环语句
+#include<stdio.h>
+
+int main（）
+{
+整型 n = 1;
+整型 m = 2;
+开关 （n）
+	{
+案例1：
+m++;
+案例2：
+n++;
+案例3：
+开关 （n）
+		{
+案例1：
+n++;
+案例2：
+m++;
+n++;
+休息;
+		}
+案例4：
+m++;
+休息;
+违约：
+休息;
+	}
+printf（“m = %d，n = %d\n”， m， n）;
+返回 0;
+}
+
+#define _CRT_SECURE_NO_WARNINGS
+#include<stdio.h>
+#include<字符串>
+struct为结构体，描述复杂对象，创建一本书
+结构书
+{
+字符名称[20];//C语言
+短价;//55
+};//此分号不可缺少，结束类型定义
+
+int main（）
+{
+struct Book b1 = { “C语言”，55};
+结构书* pd = &b1;
+printf（“%s\n”， pd->name）;
+printf（“ % d\n”， pd->price）;
+b1.价格 = 20;
+strcpy（b1.name， “C++”）;
+printf（“%s\n”， pd->name）;
+printf（“ % d\n”， pd->price）;
+返回 0;
+}
+
+#include<stdio.h>
 //计算1!+2!+3!+...+10!
 int main()
 {
