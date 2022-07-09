@@ -1,3 +1,187 @@
+#include<stdio.h>//青蛙跳台问题
+#include<stdlib.h>
+int FrogJump(int n)
+{
+	if (n <= 2)
+		return n;
+	else
+		return FrogJump(n - 1) + FrogJump(n - 2);
+}
+int Fib(int n)
+{
+	int a = 1;
+	int b = 1;
+	int c = 1;
+	while (n > 2)
+	{
+		c = a + b;
+		a = b;
+		b = c;
+		n--;
+	}
+	return c;
+}
+int main()
+{
+	int n = 0;
+	printf("输入台阶数\n");
+	scanf("%d", &n);
+	int counter = FrogJump(n);
+	printf("%d\n", counter);
+	system("pause");//暂停等待信号（防止一闪而过）
+	return 0;
+}
+
+#include<stdio.h>//求斐波那契数
+//int Fib(int n)
+//{
+//	if (n <= 2)
+//		return 1;
+//	else
+//		return Fib(n - 1) + Fib(n - 2);
+//}
+int Fib(int n)
+{
+	int a = 1;
+	int b = 1;
+	int c = 1;
+	while (n > 2)
+	{
+		c = a + b;
+		a = b;
+		b = c;
+		n--;
+	}
+	return c;
+}
+int main()
+{
+	int n = 0;
+	int ret = 0;
+	scanf("%d", &n);
+	//TDD-测试驱动开发
+	ret = Fib(n);
+	printf("ret = %d\n", ret);
+	return 0;
+}
+
+#include<stdio.h>//汉诺塔问题
+int main()
+{
+	int hanoi(int, char, char, char);
+	int n = 0;
+	int counter = 0;//计数器
+	printf("Input the number of diskes:");//输入磁盘数量
+	scanf("%d", &n);//通过键盘给程序中的变量赋值
+	counter = hanoi(n,'A', 'B', 'C');//起始柱，辅助柱，目标柱
+	return 0;
+}
+int hanoi(int n, char x, char y, char z)
+{
+	int move(char, int, char);
+	if (n == 1)
+		move(x,n,z);
+	else
+	{
+		hanoi(n - 1, x, z, y);
+		move(x, n, z);
+		hanoi(n - 1, y, x, z);
+	}
+	return 0;
+}
+int move(char getone, int n, char putone)
+{
+	static int k = 1;
+	printf("%2d:%3d # %c-->%c\n", k, n, getone, putone);
+	if (k++ % 3 == 0)//每三行空一行
+		printf("\n");
+	return 0;
+}
+
+#include<stdio.h>//求n的阶乘
+int Fca1(int n)
+{
+	int i = 0;
+	int ret = 1;
+	for (i = 1; i <= n; i++)
+	{
+		ret *= i;
+	}
+	return ret;
+}
+int Fca2(int n)
+{
+	if (n <= 1)
+		return 1;
+	else
+		return n * Fca2(n - 1);
+}
+int main()
+{
+	int n = 0;
+	int ret = 0;
+	scanf("%d", &n);
+	ret = Fca2(n);
+	printf("%d\n", ret);
+	return 0;
+}
+
+#include<stdio.h>//用函数求字符块长度,不创建临时变量
+#include<string.h>
+//int my_strlen(char* str)
+//{
+//	int count = 0;
+//	while (*str != '\0')
+//	{
+//		count++;
+//		str++;
+//	}
+//	return count;
+//}
+int my_strlen(char* str)
+{
+	if (*str != '\0')
+		return 1 + my_strlen(str + 1);
+	else
+		return 0;
+}
+//把大事化小
+//my_strlen("bit");
+//1 + my_strlen("it");
+//1 + 1 + my_strlen("t"):
+//1 + 1 + my_strlen(""):
+//1 + 1 + 1 + 0
+//3
+int main()
+{
+	char arr[] = "bit";
+	//int len = strlen(arr);
+	//printf("%d\n", len);
+	//模拟实现了一个strlen函数
+	int len = my_strlen(arr);//arr是数组，数组传参，传过去的不是整个数组，而是首元素的地址
+	printf("len = %d\n", len);
+
+	return 0;
+}
+
+#include<stdio.h>//递归打印
+void print(int n)
+{
+	if (n > 9)
+	{
+		print(n / 10);
+	}
+	printf("% d", n % 10);
+}
+int main()
+{
+	unsigned int num = 0;
+	scanf("%d", &num);//1234
+	//递归
+	print(num);
+	return 0;
+}
+
 #include<stdio.h>//每次调试+1
 void Add(int* p)
 {
